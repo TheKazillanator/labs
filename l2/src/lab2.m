@@ -1,4 +1,8 @@
- time_start = 0;
+clear all
+close all
+clc
+
+time_start = 0;
  time_final = 1;
  t_step = 5000;
  R = 5.1e3;
@@ -40,9 +44,29 @@ figure(1)
 
 hold on
 
-title("Voltage v. Time")
-xlabel('Seconds')
-ylabel('Volts')
+title("Voltage v. Time for Simulation and Theory")
+xlabel('Time (Seconds)')
+ylabel('Voltage (Volts)')
+xlim([-.1 .8])
+ylim([ -.1 1.2])
+
+
+%%% Simulation
+ps = plot(vout_t, vout,"-.",'LineWidth',3);
+
+
+%%% Theoretical
+
+pt = plot(vin_t, theor_vin, ":",'LineWidth',3);
+
+%% plot 
+figure(2)
+
+hold on
+
+title("Simulation and Theory Compared to Experimental Results")
+xlabel('Time (Seconds)')
+ylabel('Voltage (Volts)')
 xlim([-.1 .8])
 ylim([ -.1 1.2])
 
